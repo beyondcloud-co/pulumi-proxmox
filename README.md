@@ -299,3 +299,4 @@ In this section, we'll add the necessary configuration to work with GitHub Actio
     1. Under "Settings", set the Package Status to "public".
 
 Now you are ready to use the provider, cut releases, and have some well-deserved :ice_cream:!
+

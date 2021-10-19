@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package xyz
+package proxmox
 
 import (
 	"fmt"
@@ -133,7 +133,8 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi": "3.*",
+				"Pulumi":                       "3.*",
+				"System.Collections.Immutable": "1.6.0",
 			},
 		},
 	}
