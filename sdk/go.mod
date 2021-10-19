@@ -1,5 +1,6 @@
-module github.com/pulumi/pulumi-xyz/sdk
+module github.com/beyondcloud-co/pulumi-proxmox/sdk
 
 go 1.16
 
 require github.com/pulumi/pulumi/sdk/v3 v3.14.0
+
