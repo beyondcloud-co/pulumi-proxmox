@@ -2,6 +2,15 @@
 
 This repository contains boilerplate code for building a new Pulumi provider which wraps an existing Terraform provider.  These instructions are primarily intended for internal use by Pulumi as we have not yet refined the process for general consumption by the community at large, but this document may serve as a rough guide for community members who want to create their own Pulumi providers that wrap an existing Terraform provider.
 
+## Quick Start
+
+```shell
+nix-shell -p go -p python38Packages.setuptools -p dotnet-sdk_5
+
+make build
+
+```
+
 ## Creating a Pulumi Terraform Bridge Provider
 
 The following instructions assume a Pulumi-owned provider based on an upstream provider named `terraform-provider-foo`.  Substitute appropriate values below for your use case.
