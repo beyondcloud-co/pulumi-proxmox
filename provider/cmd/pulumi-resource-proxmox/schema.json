@@ -2182,12 +2182,12 @@
             "namespaces": null,
             "packageReferences": {
                 "Pulumi": "3.*",
-                "System.Collections.Immutable": "1.6.0"
+                "System.Collections.Immutable": "5.0.0"
             }
         },
         "go": {
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-proxmox/sdk/go/proxmox"
+            "importBasePath": "github.com/beyondcloud-co/pulumi-proxmox/sdk/go/proxmox"
         },
         "nodejs": {
             "compatibility": "tfbridge20",

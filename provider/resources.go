@@ -148,7 +148,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/beyondcloud-co/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
@@ -158,7 +158,7 @@ func Provider() tfbridge.ProviderInfo {
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
 				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"System.Collections.Immutable": "5.0.0",
 			},
 		},
 	}
