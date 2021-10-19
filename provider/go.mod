@@ -8,8 +8,12 @@ replace (
 )
 
 require (
+	github.com/Masterminds/sprig v2.22.0+incompatible // indirect
+	github.com/Sirupsen/logrus v1.0.5 // indirect
 	github.com/Telmate/terraform-provider-proxmox v0.0.0-20211018205517-c2ca231dbd11 // indirect
+	github.com/go-ldap/ldap v3.0.2+incompatible // indirect
 	github.com/google/go-cmp v0.5.6 // indirect
+	github.com/hashicorp/go-getter v1.5.3 // indirect
 	github.com/hashicorp/hcl/v2 v2.10.1 // indirect
 	github.com/hashicorp/terraform-plugin-sdk v1.9.1
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.13.0

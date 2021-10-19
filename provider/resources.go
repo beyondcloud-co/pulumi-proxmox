@@ -19,7 +19,6 @@ import (
 	"path/filepath"
 
 	"github.com/beyondcloud-co/pulumi-proxmox/provider/pkg/version"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
