@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/proxmox",
+    "name": "@beyondcloud/proxmox",
     "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing proxmox cloud resources.",
     "keywords": [
