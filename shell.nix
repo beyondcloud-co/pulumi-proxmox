@@ -1,12 +1,14 @@
+{ jdk ? "jdk11" }:
+
 let
 
   nixpkgs = builtins.fetchTarball {
-    name   = "nixos-unstable-2021-06-12";
-    url    = "https://github.com/NixOS/nixpkgs/archive/fce0206462cd8b80eaca59542d0c53713044050f.tar.gz";
-    sha256 = "0j0n5mr1jxxk6ib7q8v44cvnpq29bfp5b2mhy5f4sr76swiacnbf";
+    name   = "nixos-unstable-2021-12-27";
+    url    = "https://github.com/NixOS/nixpkgs/archive/be5272250926e352427b3c62c6066a95c6592375.tar.gz";
+    sha256 = "0rda00l8rdf0a4pdsflg0h7dx6hd52291ymcqv1wljzs9k5zsy7i";
   };
 
-  pkgs      = import nixpkgs {};
+  pkgs      = import nixpkgs { inherit jdk; };
   stdenv    = pkgs.stdenv;
   optionals = pkgs.lib.optionals;
 
@@ -174,21 +176,6 @@ let
         '';
       };
 
-  buildChectl =
-    { package
-    }:
-      pkgs.stdenv.mkDerivation {
-        name = "chectl";
-        src = package;
-        phases = [ "installPhase" ];
-        installPhase = ''
-          mkdir -p $out/bin
-          tar xvf $src -C $out/
-          chmod +x $out/chectl/bin/run
-          ln -s $out/chectl/bin/run $out/bin/chectl
-        '';
-      };
-
   buildVcluster =
     { package
     }:
@@ -310,29 +297,29 @@ let
 
   pulumi-linux = buildPulumi {
     package = pkgs.fetchurl {
-      url    = "https://github.com/pulumi/pulumi/releases/download/v3.15.0/pulumi-v3.15.0-linux-x64.tar.gz";
-      sha256 = "198ypl5rwnpqdi74s5f8wq8q3ddfm8k22yqqgp11z0433802xmxj";
+      url    = "https://github.com/pulumi/pulumi/releases/download/v3.20.0/pulumi-v3.20.0-linux-x64.tar.gz";
+      sha256 = "0ja007m6fj4yd5dp9pq3rh7kdkfqda41mzzb2ha2bz6dsq8di8cl";
     };
   };
 
   pulumi-darwin = buildPulumi {
     package = pkgs.fetchurl {
-      url    = "https://github.com/pulumi/pulumi/releases/download/v3.15.0/pulumi-v3.15.0-darwin-x64.tar.gz";
-      sha256 = "00n4mlwkrkzf77pfyszkjisg6ksgwhwa6aiw96819nm2yk7x8qkc";
+      url    = "https://github.com/pulumi/pulumi/releases/download/v3.20.0/pulumi-v3.20.0-darwin-x64.tar.gz";
+      sha256 = "107wzlsg9xqfy4hk7c48d7scf0s1i2dhzv946cnm63qrmp3pg6sv";
     };
   };
 
   pulumictl-linux = buildPulumictl {
     package = pkgs.fetchurl {
-      url    = "https://github.com/pulumi/pulumictl/releases/download/v0.0.28/pulumictl-v0.0.28-linux-amd64.tar.gz";
-      sha256 = "0sili19ddnw4hd4jbx1pjdcqrc7f80rq0w2bd7qr0mrjbzqjbqp0";
+      url    = "https://github.com/pulumi/pulumictl/releases/download/v0.0.29/pulumictl-v0.0.29-linux-amd64.tar.gz";
+      sha256 = "02i6jx0vrfrhx9ml4rp9ib9lh0hi5l7zssykbz86l9bxdb3xnp85";
     };
   };
 
   pulumictl-darwin = buildPulumictl {
     package = pkgs.fetchurl {
-      url    = "https://github.com/pulumi/pulumictl/releases/download/v0.0.28/pulumictl-v0.0.28-darwin-amd64.tar.gz";
-      sha256 = "0m1vlvw7nbcdgx2kvayrgssfv0dxdribq5mspflnifyhr8svsfrz";
+      url    = "https://github.com/pulumi/pulumictl/releases/download/v0.0.29/pulumictl-v0.0.29-darwin-amd64.tar.gz";
+      sha256 = "1pbx8gb1pqm21y3qr29z4byj2lszcgrqhifikss0pvkjnmhsm5a3";
     };
   };
 
@@ -348,20 +335,6 @@ let
     package = pkgs.fetchurl {
       url    = "https://github.com/pulumi/crd2pulumi/releases/download/v1.0.8/crd2pulumi-v1.0.8-darwin-amd64.tar.gz";
       sha256 = "00f8nz8ndgnkysrwxrp0plmx3q0693vsvcsmd2ld8bzn9qlsyrp8";
-    };
-  };
-
-  chectl-linux = buildChectl {
-    package = pkgs.fetchurl {
-      url    = "https://github.com/che-incubator/chectl/releases/download/7.36.1/chectl-linux-x64.tar.gz";
-      sha256 = "0qpxvqmracsj7af0c5yb5wa33hai5misxrimw0dac62nl1ymqkb0";
-    };
-  };
-
-  chectl-darwin = buildChectl {
-    package = pkgs.fetchurl {
-      url    = "0qpxvqmracsj7af0c5yb5wa33hai5misxrimw0dac62nl1ymqkb0";
-      sha256 = "17pslab5yaw6wd72f1ldrbk6r89br6xjv2ifmnn8z9zi0rxpc1rm";
     };
   };
 
@@ -433,7 +406,6 @@ let
     pulumi-darwin
     pulumictl-darwin
     crd2pulumi-darwin
-    chectl-darwin
     vcluster-darwin
     kubelogin-darwin
   ];
@@ -448,7 +420,6 @@ let
     pulumi-linux
     pulumictl-linux
     crd2pulumi-linux
-    chectl-linux
     vcluster-linux
     kubelogin-linux
   ];
