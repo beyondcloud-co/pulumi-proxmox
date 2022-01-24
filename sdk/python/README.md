@@ -17,6 +17,9 @@ nix-shell -p go -p python38Packages.setuptools -p dotnet-sdk_5
 
 make build
 
+# In the target project
+yarn link "@beyondcloud/proxmox"
+
 ```
 
 ## Creating a Pulumi Terraform Bridge Provider
