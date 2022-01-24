@@ -1,6 +1,6 @@
 {
     "name": "@beyondcloud/proxmox",
-    "version": "${VERSION}",
+    "version": "0.1.0",
     "description": "A Pulumi package for creating and managing proxmox cloud resources.",
     "keywords": [
         "pulumi",
@@ -22,5 +22,8 @@
     },
     "pulumi": {
         "resource": true
-    }
+    },
+    "publishConfig": {
+      "access": "public"
+     }
 }
