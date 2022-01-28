@@ -10,17 +10,6 @@ Modify this README to describe:
 - Update package names in the information below
 - Add any important documentation of concepts (e.g. the "serverless" components in the AWS provider).
 
-## Quick Start
-
-```shell
-nix-shell -p go -p python38Packages.setuptools -p dotnet-sdk_5
-
-make build
-
-# In the target project
-yarn link "@beyondcloud/proxmox"
-
-```
 
 ## Creating a Pulumi Terraform Bridge Provider
 
