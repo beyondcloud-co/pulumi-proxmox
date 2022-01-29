@@ -4,6 +4,7 @@
 **/obj/
 Pulumi.*.yaml
 sdk/nodejs/node_modules
+nuget/
 
 **/command-output/
 
