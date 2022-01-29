@@ -57,7 +57,7 @@ func Provider() tfbridge.ProviderInfo {
 		// Change this to your personal name (or a company name) that you
 		// would like to be shown in the Pulumi Registry if this package is published
 		// there.
-		Publisher: "Pulumi",
+		Publisher: "BeyondCloud",
 		// LogoURL is optional but useful to help identify your package in the Pulumi Registry
 		// if this package is published there.
 		//
@@ -68,7 +68,7 @@ func Provider() tfbridge.ProviderInfo {
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{"pulumi", "proxmox", "category/cloud"},
+		Keywords:   []string{"pulumi", "proxmox", "beyondcloud", "category/cloud"},
 		License:    "Apache-2.0",
 		Homepage:   "https://beyondcloud.com",
 		Repository: "https://github.com/beyondcloud-co/pulumi-proxmox",
@@ -96,6 +96,13 @@ func Provider() tfbridge.ProviderInfo {
 			// 		"tags": {Type: tfbridge.MakeType(mainPkg, "Tags")},
 			// 	},
 			// },
+			"proxmox_vm_qemu": {Tok: makeResource(mainMod, "QemuVM")},
+			"proxmox_pool": {Tok: makeResource(mainMod, "Pool")},
+			"proxmox_lxc": {Tok: makeResource(mainMod, "LXCContainer")},
+			"proxmox_lxc_disk": {
+				Tok:                 makeResource(mainMod, "LXCDisk"),
+				DeleteBeforeReplace: false,
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each resource in the Terraform provider to a Pulumi function. An example
@@ -124,7 +131,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Golang: &tfbridge.GolangInfo{
 			ImportBasePath: filepath.Join(
-				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
+				fmt.Sprintf("github.com/beyondcloud-co/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
 				mainPkg,
