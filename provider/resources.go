@@ -70,7 +70,7 @@ func Provider() tfbridge.ProviderInfo {
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
 		Keywords:   []string{"pulumi", "proxmox", "beyondcloud", "category/cloud"},
 		License:    "Apache-2.0",
-		Homepage:   "https://beyondcloud.com",
+		Homepage:   "https://beyondcloud.co",
 		Repository: "https://github.com/beyondcloud-co/pulumi-proxmox",
 		Config:     map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if

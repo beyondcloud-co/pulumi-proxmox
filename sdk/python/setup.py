@@ -46,7 +46,7 @@ setup(name='pulumi_proxmox',
           'install': InstallPluginCommand,
       },
       keywords='pulumi proxmox beyondcloud category/cloud',
-      url='https://beyondcloud.com',
+      url='https://beyondcloud.co',
       project_urls={
           'Repository': 'https://github.com/beyondcloud-co/pulumi-proxmox'
       },

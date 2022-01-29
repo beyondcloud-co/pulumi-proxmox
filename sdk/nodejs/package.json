@@ -8,7 +8,7 @@
         "beyondcloud",
         "category/cloud"
     ],
-    "homepage": "https://beyondcloud.com",
+    "homepage": "https://beyondcloud.co",
     "repository": "https://github.com/beyondcloud-co/pulumi-proxmox",
     "license": "Apache-2.0",
     "scripts": {

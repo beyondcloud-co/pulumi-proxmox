@@ -6,7 +6,7 @@
     <Company>Pulumi Corp.</Company>
     <Description>A Pulumi package for creating and managing proxmox cloud resources.</Description>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://beyondcloud.com</PackageProjectUrl>
+    <PackageProjectUrl>https://beyondcloud.co</PackageProjectUrl>
     <RepositoryUrl>https://github.com/beyondcloud-co/pulumi-proxmox</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
