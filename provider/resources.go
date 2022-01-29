@@ -52,7 +52,7 @@ func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "proxmox",
-		DisplayName: "",
+		DisplayName: "pulumi-proxmox",
 		// The default publisher for all packages is Pulumi.
 		// Change this to your personal name (or a company name) that you
 		// would like to be shown in the Pulumi Registry if this package is published
@@ -110,6 +110,7 @@ func Provider() tfbridge.ProviderInfo {
 			// "aws_ami": {Tok: tfbridge.MakeDataSource(mainMod, "getAmi")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
+			PackageName: "@beyondcloud/pulumi-proxmox",
 			// List any npm dependencies and their versions
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^3.0.0",

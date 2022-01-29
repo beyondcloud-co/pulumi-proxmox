@@ -101,6 +101,7 @@ help::
 
 clean::
 	rm -rf sdk/{dotnet,nodejs,go,python}
+	rm -rf nuget
 
 install_plugins::
 	[ -x $(shell which pulumi) ] || curl -fsSL https://get.pulumi.com | sh
