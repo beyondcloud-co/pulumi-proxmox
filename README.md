@@ -2,6 +2,69 @@
 
 This repository contains boilerplate code for building a new Pulumi provider which wraps an existing Terraform provider.  These instructions are primarily intended for internal use by Pulumi as we have not yet refined the process for general consumption by the community at large, but this document may serve as a rough guide for community members who want to create their own Pulumi providers that wrap an existing Terraform provider.
 
+## Get Started
+
+Install dependencies
+
+```shell
+pulumi plugin install resource proxmox 0.1.0 \
+       --server https://github.com/beyondcloud-co/pulumi-proxmox/releases/download/v0.1.0
+
+yarn add @beyondcloud/pulumi-proxmox
+```
+
+Nodejs Example
+
+```typescript
+import * as pulumi from "@pulumi/pulumi";
+import * as proxmox from "@beyondcloud/pulumi-proxmox";
+import { QemuVM } from "@beyondcloud/pulumi-proxmox";
+
+const provider = new proxmox.Provider("proxmox", {
+  pmApiUrl: PROXMOX_API_URL,
+  pmApiTokenId: PROXMOX_API_TOKEN_ID,
+  pmApiTokenSecret: PROXMOX_API_TOKEN_SECRET,
+  pmTlsInsecure: true,
+  pmTimeout: 180
+})
+
+let vm = new proxmox.QemuVM(`vm-demo-01`, {
+  name: `vm-demo-01`,
+  targetNode: targetNode,
+  fullClone: true,
+  clone: controller.clone,
+  ipconfig0: 'dhcp',
+  cores: 2,
+  memory: 1024,
+  balloon: 1024,
+  guestAgentReadyTimeout: 120,
+  onboot: true,
+  ciWait: 30,
+  vgas: [],
+  agent: 1,
+  defineConnectionInfo: true,
+  networks: [{
+    bridge: 'vmbr1',
+    firewall: false,
+    linkDown: false,
+    model: "virtio",
+    queues: 0,
+    rate: 0,
+    tag: -1
+  }],
+  sshkeys: '...',
+  desc: `Demo VM`,
+  disks: [{
+    format: 'raw',
+    size: '10G',
+    storage: 'local',
+    type: 'scsi'
+  }]
+}, {
+  provider: provider
+})
+
+```
 ## Creating a Pulumi Terraform Bridge Provider
 
 The following instructions assume a Pulumi-owned provider based on an upstream provider named `terraform-provider-foo`.  Substitute appropriate values below for your use case.
